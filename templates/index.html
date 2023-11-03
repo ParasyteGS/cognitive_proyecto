@@ -1,5 +1,37 @@
 {% extends "layout.html" %} {% block content %}
 
-<div></div>
+<div>
+
+    <div>
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="font-semibold">Habitaciones</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Buscar"
+                    class="input h-6 text-[10px] w-[200px] text-black bg-white  shadow-md" />
+            </div>
+        </div>
+        <div class="mt-5 flex items-center">
+            <div>
+                <a href="">
+                    <div
+                        class="bg-white rounded-md shadow-md p-2 w-32 h-32 hover:bg-gradient-to-bl from-indigo-500 to-sky-500 group">
+                        <div class="m-2">
+
+                            <iconify-icon icon="ph:cooking-pot" width="25" height="25"
+                                class=" bg-sky-500 text-sky-500 group-hover:text-white group-hover:bg-blue-800 group-hover:bg-opacity-60 bg-opacity-30 rounded-xl p-2"></iconify-icon>
+                        </div>
+                        <div class="m-2">
+                            <p class="text-[13px] font-medium group-hover:text-white">Cocina</p>
+                            <p class="text-[11px] group-hover:text-white ">8 dispositivos</p>
+                        </div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
