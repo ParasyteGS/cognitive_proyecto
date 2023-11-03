@@ -1,6 +1,6 @@
-#Proyecto de Intro a Cognitive Computing
+# Proyecto de Intro a Cognitive Computing
 
-Integrantes
-Alexander Astorga
-Sebastian Samanez
-Gonzalo Rodriguez
+### Integrantes 
+Alexander Astorga \
+Sebastian Samanez \
+Gonzalo Rodriguez 
