@@ -1,49 +1,45 @@
-{% extends "layout.html" %} {% block content %}
+{% extends "layout2.html" %} {% block content %}
 
-<div>
-	<div>
-		<div class="flex items-center justify-between">
-			<div>
-				<p class="font-semibold text-2xl">Habitaciones</p>
-			</div>
-			<div>
-				<input
-					type="text"
-					placeholder="Buscar"
-					class="input h-7 text-[10px] w-[400px] text-black bg-white shadow-md" />
-			</div>
-		</div>
-		<div class="mt-5 flex items-center">
-			<div>
-				<a href="">
-					<div
-						class="bg-white rounded-md shadow-md p-2 w-32 h-32 hover:bg-gradient-to-bl from-indigo-500 to-sky-500 group">
-						<div class="m-2">
-							<iconify-icon
-								icon="ph:cooking-pot"
-								width="25"
-								height="25"
-								class="bg-sky-500 text-sky-500 group-hover:text-white group-hover:bg-blue-800 group-hover:bg-opacity-60 bg-opacity-30 rounded-xl p-2"></iconify-icon>
+<div class="text-black">
+	<div class="mx-auto flex items-center justify-center h-screen">
+		<div class="bg-white rounded-md w-[300px] shadow-md">
+			<div class="px-4 py-2">
+				<p class="font-semibold text-md pt-2 px-3">Bienvenido</p>
+				<p class="font-medium text-[11px] px-3 pt-1 pb-2 text-neutral-700">
+					Logueate
+				</p>
+				<div class="border-b-neutral-600 border block mb-3 px-3"></div>
+				<form method=POST action="{{url_for('login')}}">
+
+					<div class="px-3 pb-4">
+
+						<div>
+							<label for="exampleInputEmail" class="text-md">Email</label>
+							<input type="email" placeholder="example@gmail.com" name="correo"
+								class="input w-full h-7 text-[10px] bg-white border border-black" />
 						</div>
-						<div class="m-2">
-							<p class="text-[13px] font-medium group-hover:text-white">
-								Cocina
-							</p>
-							<p class="text-[11px] group-hover:text-white">8 dispositivos</p>
+						<div class="pt-2">
+							<label for="exampleInputPassword" class="text-md">Contraseña</label>
+							<input type="password" placeholder="Contraseña" name="pass"
+								class="input w-full h-7 text-[10px] bg-white border border-black" />
+						</div>
+						<div class="flex justify-between items-center text-[10px] font-medium pt-2">
+							<p>No tienes cuenta?</p>
+							<a href="{{url_for('register')}}">
+								<p class="hover:text-indigo-600">Registrate</p>
+							</a>
 						</div>
 					</div>
-				</a>
+					<div class="mx-auto flex items-center justify-center pb-3">
+						<button type="submit"
+							class="text-sm border shadow-xl hover:border-white border-black indigo-500 p-2 rounded-lg hover:text-white font-medium hover:bg-gradient-to-bl from-indigo-500 to-sky-500">
+							Iniciar Sesión
+						</button>
+					</div>
+				</form>
+
 			</div>
-		</div>
-	</div>
-	<div class="mt-4">
-		<div class="flex items-center justify-between">
-			<div>
-				<p class="font-semibold">Niveles</p>
-			</div>
-			<div></div>
 		</div>
 	</div>
 </div>
-
 {% endblock %}

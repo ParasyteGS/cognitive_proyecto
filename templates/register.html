@@ -3,70 +3,46 @@
 <div class="text-black">
 	<div class="mx-auto flex items-center justify-center h-screen">
 		<div class="bg-white rounded-md w-[300px] shadow-md">
-			<form
-				method="POST"
-				action="{{url_for('register')}}">
-				<div class="px-4 py-2">
-					<p class="font-semibold text-md pt-2 px-3">Bienvenido</p>
-					<p class="font-medium text-[11px] px-3 pt-1 pb-2 text-neutral-700">
-						Registrate
-					</p>
-					<div class="border-b-neutral-600 border block mb-3 px-3"></div>
+			<div class="px-4 py-2">
+				<p class="font-semibold text-md pt-2 px-3">Bienvenido</p>
+				<p class="font-medium text-[11px] px-3 pt-1 pb-2 text-neutral-700">
+					Registrate
+				</p>
+				<div class="border-b-neutral-600 border block mb-3 px-3"></div>
+				<form method=POST action="{{url_for('register')}}">
 
 					<div class="px-3 pb-4">
 						<div>
-							<label
-								for="exampleInputEmail"
-								class="text-md"
-								>Email</label
-							>
-							<input
-								type="email"
-								name="correo"
-								placeholder="example@gmail.com"
+							<label for="exampleInputEmail" class="text-md">Email</label>
+							<input type="email" name="correo" placeholder="example@gmail.com"
 								class="input w-full h-7 text-[10px] bg-white border border-black" />
 						</div>
 						<div class="pt-2">
-							<label
-								for="exampleInputUser"
-								class="text-md"
-								>Usuario</label
-							>
-							<input
-								type="text"
-								placeholder="Usuario"
-								name="username"
+							<label for="exampleInputUser" class="text-md">Usuario</label>
+							<input type="text" placeholder="Usuario" name="username"
 								class="input w-full h-7 text-[10px] bg-white border border-black" />
 						</div>
 						<div class="pt-2">
-							<label
-								for="exampleInputPassword"
-								class="text-md"
-								>Contraseña</label
-							>
-							<input
-								type="password"
-								name="pass"
-								placeholder="Contraseña"
+							<label for="exampleInputPassword" class="text-md">Contraseña</label>
+							<input type="password" name="pass" placeholder="Contraseña"
 								class="input w-full h-7 text-[10px] bg-white border border-black" />
 						</div>
-						<div
-							class="flex justify-between items-center text-[10px] font-medium pt-2">
+						<div class="flex justify-between items-center text-[10px] font-medium pt-2">
 							<p>Tienes cuenta?</p>
-							<a href="{{url_for('login')}}">
+							<a href="{{url_for('index')}}">
 								<p class="hover:text-indigo-600">Inicia Sesión</p>
 							</a>
 						</div>
 					</div>
 					<div class="mx-auto flex items-center justify-center pb-3">
-						<button
-							type="submit"
+						<button type="submit"
 							class="text-sm border shadow-xl hover:border-white border-black indigo-500 p-2 rounded-lg hover:text-white font-medium hover:bg-gradient-to-bl from-indigo-500 to-sky-500">
 							Crea tu cuenta
 						</button>
 					</div>
-				</div>
-			</form>
+				</form>
+
+			</div>
 		</div>
 	</div>
 </div>
