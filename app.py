@@ -10,16 +10,16 @@ mongo = PyMongo(app)
 @app.route('/')
 def index():
     if 'correo' in session:
-        return render_template('mainpage.html')
+        return render_template('main.html')
     return render_template('index.html')
 
 @app.route('/login', methods=['POST'])
 def login():
     users = mongo.db.users
-    login_user = users.find_one({'name' : request.form['correo']})
+    login_user = users.find_one({'email' : request.form['correo']})
     
     if login_user:
-        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password'].encode('utf-8')) == login_user['password'].encode('utf-8'):
+        if bcrypt.hashpw(request.form['pass'].encode('utf-8'), login_user['password']) == login_user['password']:
             session['correo'] = request.form['correo']
             return redirect(url_for('index'))
     return 'Correo/password incorrectos!'
@@ -29,7 +29,9 @@ def login():
                                                
 @app.route('/register', methods=['POST', 'GET'])
 def register():
-
+    
+    if 'correo' in session:
+        return redirect(url_for('index'))
     if request.method == 'POST':
         users = mongo.db.users
         existing_user = users.find_one({'email' : request.form['correo']})
