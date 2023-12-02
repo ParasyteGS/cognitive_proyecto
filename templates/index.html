@@ -1,45 +1,110 @@
-{% extends "layout2.html" %} {% block content %}
+{% extends "layout.html" %} {% block content %}
 
-<div class="text-black">
-	<div class="mx-auto flex items-center justify-center h-screen">
-		<div class="bg-white rounded-md w-[300px] shadow-md">
-			<div class="px-4 py-2">
-				<p class="font-semibold text-md pt-2 px-3">Bienvenido</p>
-				<p class="font-medium text-[11px] px-3 pt-1 pb-2 text-neutral-700">
-					Logueate
-				</p>
-				<div class="border-b-neutral-600 border block mb-3 px-3"></div>
-				<form method=POST action="{{url_for('login')}}">
-
-					<div class="px-3 pb-4">
-
-						<div>
-							<label for="exampleInputEmail" class="text-md">Email</label>
-							<input type="email" placeholder="example@gmail.com" name="correo"
-								class="input w-full h-7 text-[10px] bg-white border border-black" />
+<div>
+	<div>
+		<div class="flex items-center justify-between">
+			<div>
+				<p class="font-semibold text-2xl">Habitaciones</p>
+			</div>
+			<div>
+				<input type="text" placeholder="Buscar"
+					class="input h-7 text-[10px] w-[300px] text-black bg-white shadow-md" />
+			</div>
+		</div>
+		<div class="mt-5 flex items-center">
+			<div>
+				<a href="">
+					<div
+						class="bg-white rounded-md shadow-md p-2 w-32 h-32 hover:bg-gradient-to-bl from-indigo-500 to-sky-500 group">
+						<div class="m-2">
+							<iconify-icon icon="fluent-emoji-high-contrast:house-with-garden" width="25" height="25"
+								class="bg-sky-500 text-sky-500 group-hover:text-white group-hover:bg-blue-800 group-hover:bg-opacity-60 bg-opacity-30 rounded-xl p-2"></iconify-icon>
 						</div>
-						<div class="pt-2">
-							<label for="exampleInputPassword" class="text-md">Contraseña</label>
-							<input type="password" placeholder="Contraseña" name="pass"
-								class="input w-full h-7 text-[10px] bg-white border border-black" />
-						</div>
-						<div class="flex justify-between items-center text-[10px] font-medium pt-2">
-							<p>No tienes cuenta?</p>
-							<a href="{{url_for('register')}}">
-								<p class="hover:text-indigo-600">Registrate</p>
-							</a>
+						<div class="m-2">
+							<p class="text-[13px] font-medium group-hover:text-white">
+								Exterior
+							</p>
+							{% for location, sensors in sensors_by_location.items() %}
+							<p class="text-[11px] group-hover:text-white">{{ sensors|length }} dispositivos</p>
+							{% endfor %}
 						</div>
 					</div>
-					<div class="mx-auto flex items-center justify-center pb-3">
-						<button type="submit"
-							class="text-sm border shadow-xl hover:border-white border-black indigo-500 p-2 rounded-lg hover:text-white font-medium hover:bg-gradient-to-bl from-indigo-500 to-sky-500">
-							Iniciar Sesión
-						</button>
-					</div>
-				</form>
-
+				</a>
 			</div>
 		</div>
 	</div>
+	<div class="mt-4">
+		<div>
+			<div>
+				<p class="font-semibold text-2xl">Niveles</p>
+			</div>
+		</div>
+		<div class="mt-5 grid grid-cols-2 gap-6">
+			<div>
+				<a href="">
+					<div class="bg-white rounded-md shadow-md p-2 w-[320px]">
+						<div class="m-2">
+							<div class="flex items-center">
+								<iconify-icon icon="ic:outline-water-drop" width="25" height="25"
+									class="bg-blue-500 text-white p-2 rounded-xl"></iconify-icon>
+
+								<div class="ml-2">
+									<p class="text-black font-medium">Humedad</p>
+								</div>
+
+							</div>
+							{% for sensor in dht_sensors %}
+							<div class="flex items-center justify-center my-5">{{sensor.readings.humidity}}%</div>
+							{% endfor %}
+						</div>
+					</div>
+				</a>
+			</div>
+			<div>
+				<a href="">
+					<div class="bg-white rounded-md shadow-md p-2 w-[320px]">
+						<div class="m-2">
+							<div class="flex items-center">
+								<iconify-icon icon="fluent:temperature-48-filled" width="25" height="25"
+									class="bg-blue-500 text-white p-2 rounded-xl"></iconify-icon>
+
+								<div class="ml-2">
+									<p class="text-black font-medium">Temperatura</p>
+								</div>
+
+							</div>
+							{% for sensor in dht_sensors %}
+							<div class="flex items-center justify-center my-5">{{sensor.readings.temperature}}°C</div>
+							{% endfor %}
+
+
+						</div>
+					</div>
+				</a>
+			</div>
+			<div>
+				<a href="">
+					<div class="bg-white rounded-md shadow-md p-2 w-[320px]">
+						<div class="m-2">
+							<div class="flex items-center">
+								<iconify-icon icon="ic:twotone-co2" width="25" height="25"
+									class="bg-blue-500 text-white p-2 rounded-xl"></iconify-icon>
+
+								<div class="ml-2">
+									<p class="text-black font-medium">CO2</p>
+								</div>
+							</div>
+							{% for sensor in mq2_sensors %}
+							<div class="flex items-center justify-center my-5">{{sensor.readings.smoke}}</div>
+							{% endfor %}
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
 </div>
+
+
 {% endblock %}

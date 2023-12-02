@@ -968,6 +968,11 @@ html {
   margin-bottom: 1.5rem;
 }
 
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -1072,8 +1077,12 @@ html {
   width: 300px;
 }
 
-.w-\[400px\] {
-  width: 400px;
+.w-\[320px\] {
+  width: 320px;
+}
+
+.w-\[380px\] {
+  width: 380px;
 }
 
 .w-full {
@@ -1085,36 +1094,8 @@ html {
   width: max-content;
 }
 
-.w-\[380px\] {
-  width: 380px;
-}
-
-.w-\[350px\] {
-  width: 350px;
-}
-
-.w-\[30px\] {
-  width: 30px;
-}
-
-.w-\[320px\] {
-  width: 320px;
-}
-
 .cursor-pointer {
   cursor: pointer;
-}
-
-.auto-cols-auto {
-  grid-auto-columns: auto;
-}
-
-.auto-cols-max {
-  grid-auto-columns: max-content;
-}
-
-.grid-flow-col {
-  grid-auto-flow: column;
 }
 
 .grid-cols-2 {
